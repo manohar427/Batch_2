@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;JDK5_Features/src/com/jdk/enum&apos; to &apos;enumdemo&apos;" description="Rename resource &apos;enum&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/jdk/enum" name="enumdemo" stamp="1470275971885" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;JDK5_Features/src/com/jdk/enumdemo/Gender.java&apos; to &apos;GenderType.java&apos;" description="Rename resource &apos;Gender.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/com/jdk/enumdemo/Gender.java" name="GenderType.java" stamp="1470276068174" updateReferences="true"/>
+</session>

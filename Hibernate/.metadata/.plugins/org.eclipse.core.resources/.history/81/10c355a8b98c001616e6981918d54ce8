@@ -1,0 +1,50 @@
+package com.test.main;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+
+public class ManageEmployee {
+
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("com/test/cfg/hibernate.cfg.xml");
+
+		SessionFactory factory = cfg.buildSessionFactory();
+
+		Session session = factory.openSession();
+
+		Transaction t = session.beginTransaction();
+
+		String hql = "FROM com.test.emp.Cart";
+		//String hql = "FROM com.test.emp.Cart";
+		Query query = session.createQuery(hql);
+		List results = query.list();
+		
+		
+		System.out.println(results);
+
+		/*
+		 * Cart cart = new Cart(); cart.setName("MyCart");
+		 * 
+		 * Items item1 = new Items("I1", 10, 1, cart); Items item2 = new
+		 * Items("I2", 20, 2, cart); Set<Items> itemsSet = new HashSet<Items>();
+		 * itemsSet.add(item1); itemsSet.add(item2);
+		 * 
+		 * cart.setItems(itemsSet); cart.setTotal(10*1 + 20*2);
+		 * session.save(cart); session.save(item1); session.save(item2);
+		 */
+		//t.commit();
+		//session.close();
+
+		System.out.println("successfully saved");
+	}
+
+}

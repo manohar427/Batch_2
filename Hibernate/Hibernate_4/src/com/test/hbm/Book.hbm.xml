@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+ "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.test.emp">
+	<class name="Book" table="book">
+		<id name="id" column="book_id">
+			<generator class="native" />
+		</id>
+		<property name="title" type="string" column="book_title" />
+		<property name="description" type="string" column="book_desc" />
+		<property name="publishedDate" type="date" column="pub_date" />
+
+		<many-to-one name="Author" class="com.test.emp.Author"
+			column="author_id" unique="true" not-null="true" cascade="all" />
+
+	</class>
+</hibernate-mapping>
+

@@ -1,0 +1,20 @@
+INDEX VERSION 1.122+D:\Training\Batch_2\Html\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+20244122.index
+1100136200.index
+1742454257.index
+2446798781.index
+3212464839.index
+4013590454.index
+513462755.index
+476805787.index
+1362803949.index
+1303754414.index
+106504835.index
+117543103.index
+2554181408.index
+636160177.index
+968189759.index
+1901990421.index
+1208873508.index
+2604130763.index
+2396247713.index

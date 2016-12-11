@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<script>
+ function readCountryName()
+ {
+	 var countryName = document.ajax.country.value;
+	 var xhttp = new XMLHttpRequest();
+	 
+	  xhttp.onreadystatechange = function() {
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+	    	
+	      document.getElementById("states").innerHTML = xhttp.responseText;
+	    }
+	  };
+	  xhttp.open("GET", "http://localhost:2222/AjaxServer/TestServlet?country="+countryName, true);
+	  xhttp.send();
+ }
+</script>
+<body>
+ <form name="ajax">
+	<table>
+	<tr>
+	  <td>FirstName</td>
+	  <td><input type="text"></td>
+	</tr>
+		<tr>
+			<td>Country</td>
+			<td><select name="country" onchange="readCountryName()">
+					<option value="select">Select</option>
+					<option value="us">US</option>
+					<option value="uk">UK</option>
+					<option value="india">India</option>
+			</select></td>
+		</tr>
+		<tr>
+			<td>Province</td>
+			<td>
+				<div id="states">
+				<select>
+				 <option value="select">Select</option>
+				</select>
+				</div>
+			</td>
+		</tr>
+	</table>
+	
+	</form>
+</body>
+</html>

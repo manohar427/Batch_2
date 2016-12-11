@@ -1,0 +1,41 @@
+package com.test.main;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.test.emp.Address;
+import com.test.emp.Employee;
+
+public class ManageEmployee {
+
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("com/test/cfg/hibernate.cfg.xml");
+
+		SessionFactory factory = cfg.buildSessionFactory();
+
+		Session session = factory.openSession();
+
+		Transaction t = session.beginTransaction();
+		Employee emp = new Employee();
+		emp.setFirstName("Abc");
+		emp.setLastName("LastName");
+		
+		Address ad = new Address();
+		ad.setAddressLine1("Line1");
+        ad.setAddressLine2("Line2");
+        ad.setCity("City");
+        ad.setCountry("India");
+        emp.setAddress(ad);
+        
+        ad.setEmplyee(emp);
+        session.save(emp);
+        
+		t.commit();
+		session.close();
+
+		System.out.println("successfully saved");
+	}
+}

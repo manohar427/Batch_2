@@ -1,0 +1,70 @@
+package com.test.main;
+
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
+import com.test.emp.Student;
+
+public class ManageEmployee {
+
+	public static void main(String[] args) {
+		Configuration cfg = new Configuration();
+		cfg.configure("com/test/cfg/hibernate.cfg.xml");
+
+		SessionFactory factory = cfg.buildSessionFactory();
+
+		Session session = factory.openSession();
+
+		Transaction t = session.beginTransaction();
+
+		
+		 /* String hql = "FROM Student AS S"; 
+		  Query query =  session.createQuery(hql);
+		  List results = query.list();
+		  System.out.println(results);
+		 */
+
+		
+		 /* String hql = "FROM Student AS s WHERE s.studentId = :x"; 
+		  Query  q = session.createQuery(hql);
+		  q.setParameter("x",103); 
+		  List results = q.list();
+		  System.out.println(results);
+		 */
+
+		
+		 /* Criteria cr = session.createCriteria(Student.class);
+		  List results =  cr.list();
+		  System.out.println(results);*/
+
+		
+		  /*Criteria cr = session.createCriteria(Student.class);
+		  cr.add(Restrictions.eq("studentAddress", "Hyderabad")); 
+		  List results  = cr.list();
+		  System.out.println(results);*/
+		 
+
+		Criteria cr = session.createCriteria(Student.class);
+		cr.add(Restrictions.gt("courceId", 203));
+
+		cr.addOrder(Order.desc("studentName"));
+
+		cr.addOrder(Order.asc("studentId"));
+
+		List results = cr.list();
+		System.out.println(results);
+
+		t.commit();
+		session.close();
+
+		System.out.println("successfully saved");
+	}
+}
